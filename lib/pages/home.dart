@@ -39,6 +39,16 @@ class _CounterPageState extends State<CounterPage> {
           'flutter basic app',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: Icon(Icons.menu, color: Colors.white),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +56,10 @@ class _CounterPageState extends State<CounterPage> {
         children: [
           Expanded(
             child: Center(
-              child: Text('$counter', style: TextStyle(fontSize: 60, fontWeight: FontWeight.w400)),
+              child: Text(
+                '$counter',
+                style: TextStyle(fontSize: 60, fontWeight: FontWeight.w400),
+              ),
             ),
           ),
         ],
@@ -84,14 +97,33 @@ class _CounterPageState extends State<CounterPage> {
           const SizedBox(height: 50),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.blueGrey,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(label: 'counter', icon: Icon(Icons.add)),
-          BottomNavigationBarItem(label: 'f*ck', icon: Icon(Icons.book)),
-          BottomNavigationBarItem(label: 'conatiner', icon: Icon(Icons.square))
-        ],
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.deepOrangeAccent),
+              child: Text(
+                'menú',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            ListTile(
+              title: Text('counter'),
+              leading: Icon(Icons.one_k_rounded),
+              onTap: () {
+                Navigator.of(context).pushNamed('/');
+              },
+            ),
+            ListTile(
+              title: Text('containers'),
+              leading: Icon(Icons.square_rounded),
+              onTap: () {
+                Navigator.of(context).pushNamed('/containers');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

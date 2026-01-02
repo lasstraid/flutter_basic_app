@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_app/pages/home.dart';
+import 'package:flutter_basic_app/pages/containers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'flutter basic app',
       debugShowCheckedModeBanner: false,
-      home: const CounterPage(),
+      routes: {
+        '/': (BuildContext context) {
+          return const CounterPage();
+        },
+        '/containers': (BuildContext context) {
+          return const ContainersPage();
+        }
+      },
     );
   }
 }
