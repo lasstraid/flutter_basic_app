@@ -122,6 +122,13 @@ class _CounterPageState extends State<CounterPage> {
                 Navigator.of(context).pushNamed('/containers');
               },
             ),
+            ListTile(
+              title: Text('wannabe wallet'),
+              leading: Icon(Icons.money_rounded),
+              onTap: () {
+                Navigator.of(context).pushNamed('/wannabe-wallet');
+              }
+            )
           ],
         ),
       ),

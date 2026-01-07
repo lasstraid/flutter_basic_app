@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ContainersPage extends StatelessWidget {
   const ContainersPage({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,6 +13,11 @@ class ContainersPage extends StatelessWidget {
         color: Colors.red,
         child: Card(
           color: Colors.green,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+            side: BorderSide(color: Colors.white),
+          ),
+          clipBehavior: Clip.antiAlias,
           child: Row(
             children: [
               Container(
@@ -21,19 +26,20 @@ class ContainersPage extends StatelessWidget {
                 width: 100,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    color: Colors.purpleAccent,
-                  ),
+                  child: Container(color: Colors.purpleAccent),
                 ),
               ),
-              SizedBox(width: 20,),
+              SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Something to eat',),
-                  Text('- A mf who knows to cock', style: TextStyle(fontStyle: FontStyle.italic),),
+                  Text('Something to eat'),
+                  Text(
+                    '- A mf who knows to cock',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
