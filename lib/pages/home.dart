@@ -24,7 +24,7 @@ class _CounterPageState extends State<CounterPage> {
     });
   }
 
-  void restar() {
+  void restart() {
     setState(() {
       counter = 0;
     });
@@ -89,7 +89,7 @@ class _CounterPageState extends State<CounterPage> {
           FloatingActionButton(
             backgroundColor: Colors.white70,
             onPressed: () {
-              restar();
+              restart();
             },
             heroTag: 'reset',
             child: Icon(Icons.refresh),
